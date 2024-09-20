@@ -1,0 +1,57 @@
+<?php
+/*
+                                  KABALE UNIVERSITY
+FACULTY OF COMPUTING LIBRARY AND INFORMATION SCIENCE
+PROGRAM:    BIT
+COURSE:       SCRIPTING LANGUAGE
+FACILITATOR:    Mr KASOZI BRIAN
+
+
+
+*/
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capture form data
+    $name = htmlspecialchars(trim($_POST['name']));
+    $dob = htmlspecialchars(trim($_POST['dob']));
+    $address = htmlspecialchars(trim($_POST['address']));
+
+    // Calculate age
+    $birthDate = new DateTime($dob);
+    $today = new DateTime();
+    $age = $today->diff($birthDate)->y;
+
+    // Generate welcome message
+    $message = "Welcome home, $name! You are $age years old today.";
+} else {
+    $message = "";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+</head>
+<body>
+    <h1>Welcome Home Form</h1>
+    <form method="post" action="">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+        
+        <label for="address">Home Address:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php if ($message): ?>
+        <h2><?php echo $message; ?></h2>
+    <?php endif; ?>
+</body>
+</html>
