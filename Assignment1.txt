@@ -7,11 +7,7 @@ COURSE:       SCRIPTING LANGUAGE
 NAME  :  IRINATWE NICHOLAS
 REG NO:  2023/A/KIT/3853/F
 FACILITATOR:    Mr KASOZI BRIAN
-
-
-
 */
-<?php
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture form data
