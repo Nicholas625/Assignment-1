@@ -11,6 +11,7 @@ FACILITATOR:    Mr KASOZI BRIAN
 
 
 */
+<?php
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture form data
